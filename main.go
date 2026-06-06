@@ -40,6 +40,14 @@ func main() {
 		return t.Execute(c.Response(), page)
 	})
 
+	e.GET("/readyz", func(c echo.Context) error {
+    	return c.NoContent(200)
+	})
+
+	e.GET("/livez", func(c echo.Context) error {
+    	return c.NoContent(200)
+	})
+
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
